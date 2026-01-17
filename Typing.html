@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>タイピングゲーム</title>
+    <style>
+        body {
+            font-family: serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background: #222;
+            color: #fff;
+        }
+        #word {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+        #input {
+            font-size: 24px;
+            padding: 5px 10px;
+        }
+        #score, #time {
+            margin-top: 10px;
+            font-size: 18px;
+        }
+        #image {
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+<div id="word"></div>
+<div id="input"></div>
+<div id="score">Score: 0</div>
+<div id="time">Time: 30</div>
+<img id="image" src="https://placehold.co/300x200/ffffff/ffffff" alt="" style="width: 100px;height: 100px; position: absolute; top: 30px; left: 30px;">
+
+<script src="Typing.js"></script>
+</body>
+</html>
