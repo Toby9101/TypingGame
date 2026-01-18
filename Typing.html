@@ -27,17 +27,46 @@
             margin-top: 10px;
             font-size: 18px;
         }
-        #image {
+        #timeImage {
             visibility: hidden;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            bottom: 50px;
+            left: 30px;
+        }
+        .enemyHP-wrapper {
+            flex-shrink: 0;
+            width: 1000px;          /* ← ここを減らすと右側が削れる */
+            height: 100px;          /* 画像の高さに合わせる */
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 50px;           /* y座標（自由に指定） */
+            overflow: hidden;      /* はみ出した部分を隠す */
+        }
+        #enemyHPImage {
+            visibility: visible;
+            width: 1000px;
+            height: 100px;
+            position: static;
+            display: block;
         }
     </style>
+
 </head>
 <body>
+
+<div class="enemyHP-wrapper">
+    <img id="enemyHPImage" src="https://placehold.co/1000x100/000000/000000">
+</div>
+
 <div id="word"></div>
 <div id="input"></div>
 <div id="score">Score: 0</div>
 <div id="time">Time: 30</div>
-<img id="image" src="https://placehold.co/300x200/ffffff/ffffff" alt="" style="width: 100px;height: 100px; position: absolute; top: 30px; left: 30px;">
+<img id="timeImage" src="https://placehold.co/300x100/ffffff/ffffff">
+
 
 <script src="Typing.js"></script>
 </body>

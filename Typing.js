@@ -13,10 +13,11 @@ const wordEl = document.getElementById("word");
 const inputEl = document.getElementById("input");
 const scoreEl = document.getElementById("score");
 const timeEl = document.getElementById("time");
-const imageEL = document.getElementById("image");
+const timeImageEL = document.getElementById("timeImage");
+const enemyHPImageEL = document.createElement("enemyHPImage");
 const startTime = 30;       //ゲームすべての制限時間
 const questionTime = 5;     //１問あたりの制限時間
-const startImageX = imageEL.offsetLeft;
+const startImageX = timeImageEL.offsetLeft;
 const changeWordX = window.innerWidth - 100;
 const enemyHP = 100;
 
@@ -28,14 +29,15 @@ let inputWord = "";
 let num = 0;
 let input = '';
 let state = GameState.TITLE;
-let x = imageEL.offsetLeft;
+let x = timeImageEL.offsetLeft;
 
 
 // ランダムな単語をセット
 function setNewWord() {
     //画像表示
-    imageEL.style.visibility = "visible";
-    imageEL.style.left = startImageX + "px";
+    timeImageEL.style.visibility = "visible";
+    enemyHPImageEL.style.visibility = "visible";
+    timeImageEL.style.left = startImageX + "px";
     x = startImageX;
     const index = Math.floor(Math.random() * words.length);
     currentWord = words[index];
@@ -88,7 +90,7 @@ function upData() {
             break;
         case GameState.PLAYING:
             x++;
-            imageEL.style.left = x + "px";
+            timeImageEL.style.left = x + "px";
             if(x >= changeWordX){
                 x = startImageX;
                 setNewWord();
@@ -102,6 +104,15 @@ function upData() {
     }
     requestAnimationFrame(upData);
 }
+
+function setHP(percent) {
+    const maxWidth = 200; // 画像の幅
+    document.querySelector('.enemyHP-wrapper').style.width = (maxWidth * percent) + 'px';
+}
+
+// 50%にする
+setHP(0.5);
+
 
 requestAnimationFrame(upData);
 
